@@ -124,7 +124,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <PackageCertificateKeyFile>Box2d-integration_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Box2d-Integration_TemporaryKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>0EF4E4C6521D76BFF4B15FBF03FDBBD95F9710F4</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -239,7 +239,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Box2d-integration_TemporaryKey.pfx" />
+    <None Include="Box2d-Integration_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Classes\AppDelegate.cpp" />

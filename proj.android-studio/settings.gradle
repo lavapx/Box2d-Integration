@@ -1,4 +1,4 @@
 include ':libcocos2dx'
 project(':libcocos2dx').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/libcocos2dx')
-include ':Box2d-integration'
-project(':Box2d-integration').projectDir = new File(settingsDir, 'app')
+include ':Box2d-Integration'
+project(':Box2d-Integration').projectDir = new File(settingsDir, 'app')

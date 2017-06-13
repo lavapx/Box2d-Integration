@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Icon-57.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.lavapixel.box2d</string>
+	<string>com.lavapx.box2d</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon-29</string>

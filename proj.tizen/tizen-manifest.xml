@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="com.lavapixel.box2d" version="1.0.0">
-    <ui-application appid="com.lavapixel.box2d" exec="hellocpp" multiple="false" nodisplay="false" taskmanage="true" type="capp">
-        <label>Box2d-integration</label>
-        <icon>Box2d-integration.png</icon>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="org.cocos2d-x.hellocpp" version="1.0.0">
+    <ui-application appid="org.cocos2d-x.hellocpp" exec="hellocpp" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>Box2d-Integration</label>
+        <icon>Box2d-Integration.png</icon>
     </ui-application>
 </manifest>

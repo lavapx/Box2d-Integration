@@ -332,6 +332,7 @@ USER_SRCS = ../../cocos/2d/CCAction.cpp \
             ../../cocos/network/HttpClient.cpp \
             ../../cocos/network/HttpCookie.cpp \
             ../../cocos/network/SocketIO.cpp \
+            ../../cocos/network/Uri.cpp \
             ../../cocos/network/WebSocket.cpp \
             ../../cocos/physics/CCPhysicsBody.cpp \
             ../../cocos/physics/CCPhysicsContact.cpp \
@@ -655,6 +656,7 @@ USER_SRCS = ../../cocos/2d/CCAction.cpp \
             ../../external/Box2D/Rope/b2Rope.cpp \
             ../../external/ConvertUTF/ConvertUTF.c \
             ../../external/ConvertUTF/ConvertUTFWrapper.cpp \
+            ../../external/md5/md5.c \
             ../../external/bullet/BulletCollision/BroadphaseCollision/btAxisSweep3.cpp \
             ../../external/bullet/BulletCollision/BroadphaseCollision/btBroadphaseProxy.cpp \
             ../../external/bullet/BulletCollision/BroadphaseCollision/btCollisionAlgorithm.cpp \

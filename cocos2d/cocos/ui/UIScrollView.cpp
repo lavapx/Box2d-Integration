@@ -1,5 +1,5 @@
 /****************************************************************************
-Copyright (c) 2013-2016 Chukong Technologies Inc.
+Copyright (c) 2013-2017 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -257,11 +257,13 @@ void ScrollView::addChild(Node * child, int localZOrder)
 
 void ScrollView::addChild(Node *child, int zOrder, int tag)
 {
+    child->setGlobalZOrder(_globalZOrder);
     _innerContainer->addChild(child, zOrder, tag);
 }
 
 void ScrollView::addChild(Node* child, int zOrder, const std::string &name)
 {
+    child->setGlobalZOrder(_globalZOrder);
     _innerContainer->addChild(child, zOrder, name);
 }
 

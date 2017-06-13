@@ -1,5 +1,5 @@
 /****************************************************************************
- Copyright (c) 2014-2016 Chukong Technologies Inc.
+ Copyright (c) 2014-2017 Chukong Technologies Inc.
 
  http://www.cocos2d-x.org
 
@@ -107,14 +107,14 @@ static int fdGetter(const std::string& url, off_t* start, off_t* length)
 
 //====================================================
 AudioEngineImpl::AudioEngineImpl()
-    : _audioIDIndex(0)
-    , _engineObject(nullptr)
+    : _engineObject(nullptr)
     , _engineEngine(nullptr)
     , _outputMixObject(nullptr)
-    , _lazyInitLoop(true)
     , _audioPlayerProvider(nullptr)
     , _onPauseListener(nullptr)
     , _onResumeListener(nullptr)
+    , _audioIDIndex(0)
+    , _lazyInitLoop(true)
 {
     __callerThreadUtils.setCallerThreadId(std::this_thread::get_id());
 }
@@ -254,20 +254,22 @@ int AudioEngineImpl::play2d(const std::string &filePath ,bool loop ,float volume
                 }
 
                 int id = player->getId();
+                std::string filePath = *AudioEngine::_audioIDInfoMap[id].filePath;
 
                 ALOGV("Removing player id=%d, state:%d", id, (int)state);
+
+                AudioEngine::remove(id);
+                _audioPlayers.erase(id);
 
                 auto iter = _callbackMap.find(id);
                 if (iter != _callbackMap.end())
                 {
                     if (state == IAudioPlayer::State::OVER)
                     {
-                        iter->second(id, *AudioEngine::_audioIDInfoMap[id].filePath);
+                        iter->second(id, filePath);
                     }
                     _callbackMap.erase(iter);
                 }
-                AudioEngine::remove(id);
-                _audioPlayers.erase(id);
             });
 
             player->setLoop(loop);

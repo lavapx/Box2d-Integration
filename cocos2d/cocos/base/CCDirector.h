@@ -2,7 +2,7 @@
  Copyright (c) 2008-2010 Ricardo Quesada
  Copyright (c) 2010-2013 cocos2d-x.org
  Copyright (c) 2011      Zynga Inc.
- Copyright (c) 2013-2016 Chukong Technologies Inc.
+ Copyright (c) 2013-2017 Chukong Technologies Inc.
 
 http://www.cocos2d-x.org
 
@@ -97,6 +97,11 @@ enum class MATRIX_STACK_TYPE
 class CC_DLL Director : public Ref
 {
 public:
+    /** Director will trigger an event before set next scene. */
+    static const char* EVENT_BEFORE_SET_NEXT_SCENE;
+    /** Director will trigger an event after set next scene. */
+    static const char* EVENT_AFTER_SET_NEXT_SCENE;
+    
     /** Director will trigger an event when projection type is changed. */
     static const char* EVENT_PROJECTION_CHANGED;
     /** Director will trigger an event before Schedule::update() is invoked. */
@@ -462,7 +467,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    void pushProjectionMatrix(unsigned int index);
+    void pushProjectionMatrix(size_t index);
 
     /** Pops the top matrix of the specified type of matrix stack.
      * @js NA
@@ -473,7 +478,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    void popProjectionMatrix(unsigned int index);
+    void popProjectionMatrix(size_t index);
 
     /** Adds an identity matrix to the top of specified type of matrix stack.
      * @js NA
@@ -484,7 +489,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    void loadProjectionIdentityMatrix(unsigned int index);
+    void loadProjectionIdentityMatrix(size_t index);
 
     /**
      * Adds a matrix to the top of specified type of matrix stack.
@@ -502,7 +507,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    void loadProjectionMatrix(const Mat4& mat, unsigned int index);
+    void loadProjectionMatrix(const Mat4& mat, size_t index);
 
     /**
      * Multiplies a matrix to the top of specified type of matrix stack.
@@ -520,7 +525,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    void multiplyProjectionMatrix(const Mat4& mat, unsigned int index);
+    void multiplyProjectionMatrix(const Mat4& mat, size_t index);
 
     /**
      * Gets the top matrix of specified type of matrix stack.
@@ -533,7 +538,7 @@ public:
      * @param index The index of projection matrix stack.
      * @js NA
      */
-    const Mat4& getProjectionMatrix(unsigned int index) const;
+    const Mat4& getProjectionMatrix(size_t index) const;
 
     /**
      * Clear all types of matrix stack, and add identity matrix to these matrix stacks.
@@ -546,13 +551,13 @@ public:
      * @param stackCount The size of projection matrix stack.
      * @js NA
      */
-    void initProjectionMatrixStack(unsigned int stackCount);
+    void initProjectionMatrixStack(size_t stackCount);
 
     /**
      * Get the size of projection matrix stack.
      * @js NA
      */
-    unsigned int getProjectionMatrixStackSize();
+    size_t getProjectionMatrixStackSize();
 
     /**
      * returns the cocos2d thread id.
@@ -568,6 +573,10 @@ public:
 protected:
     void reset();
     
+
+    virtual void startAnimation(SetIntervalReason reason);
+    virtual void setAnimationInterval(float interval, SetIntervalReason reason);
+
     void purgeDirector();
     bool _purgeDirectorInNextLoop; // this flag will be set to true in end()
     
@@ -576,6 +585,7 @@ protected:
     
     void setNextScene();
     
+    void updateFrameRate();
     void showStats();
     void createStatsLabel();
     void calculateMPF();
@@ -611,7 +621,7 @@ protected:
      @since v3.0
      */
     EventDispatcher* _eventDispatcher;
-    EventCustom *_eventProjectionChanged, *_eventAfterDraw, *_eventAfterVisit, *_eventBeforeUpdate, *_eventAfterUpdate, *_eventResetDirector;
+    EventCustom *_eventProjectionChanged, *_eventAfterDraw, *_eventAfterVisit, *_eventBeforeUpdate, *_eventAfterUpdate, *_eventResetDirector, *_beforeSetNextScene, *_afterSetNextScene;
         
     /* delta time since last tick to main loop */
 	float _deltaTime;
@@ -642,6 +652,7 @@ protected:
 
     /* How many frames were called since the director started */
     unsigned int _totalFrames;
+    unsigned int _frames;
     float _secondsPerFrame;
     
     /* The running scene */

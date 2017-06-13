@@ -1,5 +1,5 @@
 /****************************************************************************
- Copyright (c) 2013-2016 Chukong Technologies Inc.
+ Copyright (c) 2013-2017 Chukong Technologies Inc.
 
  http://www.cocos2d-x.org
 
@@ -429,9 +429,9 @@ void Scale9Sprite::setScale9Enabled(bool enabled)
     RenderingType type = enabled ? RenderingType::SLICE : RenderingType::SIMPLE;
     setRenderingType(type);
 
-    // only enable strech when scale9 is enabled
-    // for backward compatibiliy, since Sprite streches the texture no matter the rendering type
-    setStrechEnabled(enabled);
+    // only enable stretch when scale9 is enabled
+    // for backward compatibility, since Sprite stretches the texture no matter the rendering type
+    setStretchEnabled(enabled);
 }
 
 bool Scale9Sprite::isScale9Enabled() const
