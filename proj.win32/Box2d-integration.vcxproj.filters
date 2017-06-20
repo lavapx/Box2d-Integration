@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\b2d">
+      <UniqueIdentifier>{e21609d2-63e2-4bee-8077-f93840aa12af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,18 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\b2d\b2dRootWorldNode.cpp">
+      <Filter>src\b2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\b2d\b2dSprite.cpp">
+      <Filter>src\b2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\b2d\GLESDebugDraw.cpp">
+      <Filter>src\b2d</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameVars.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -30,6 +45,18 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2d\b2dRootWorldNode.h">
+      <Filter>src\b2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2d\b2dSprite.h">
+      <Filter>src\b2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\b2d\GLESDebugDraw.h">
+      <Filter>src\b2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameVars.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
