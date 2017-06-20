@@ -150,7 +150,7 @@ void b2WorldNode::addChild(Node* child, int localZOrder, const std::string &name
 bool b2WorldNode::addChildBody(Node* child)
 {
 	
-	if (b2Sprite* newB2Dchild = static_cast<b2Sprite*>(child))
+	if (b2Sprite* newB2Dchild = dynamic_cast<b2Sprite*>(child))
 	{
 		newB2Dchild->setBody(_world->CreateBody(newB2Dchild->getBodyDef()), this);
 
