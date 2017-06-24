@@ -51,19 +51,17 @@ public:
 	* @return  An autoreleased b2WorldNode object.
 	*/
 	
-
 	//Get, Set
 	b2World* getb2World();
 	float& getPTM();
-
 
 	//Children
 	using Node::addChild;
 	void addChild(Node* child, int localZOrder, const std::string &name) override;
 
-
 	//delta functions
 	void update(float dt)override;
+
 #if (CC_BOX2D_DEBUG)
 	virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4& parentTransform, uint32_t parentFlags) override;
 

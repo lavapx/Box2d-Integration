@@ -125,8 +125,6 @@ b2Sprite* b2Sprite::create(const std::string& filename, const Rect& rect)
 	CC_SAFE_DELETE(sprite);
 	return nullptr;
 
-
-
 }
 
 b2Sprite* b2Sprite::create(const std::string& filename, const Rect& rect, b2BodyType type)
@@ -198,13 +196,11 @@ void b2Sprite::setWorldNode(b2WorldNode* world)
 
 }
 
-
 b2WorldNode* b2Sprite::getWorldNode()
 {
 	return _parentWorldNode;
 
 }
-
 
 void b2Sprite::setBody(b2Body* body, b2WorldNode* world)
 {

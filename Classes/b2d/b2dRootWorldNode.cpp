@@ -128,7 +128,6 @@ b2World* b2WorldNode::getb2World()
 
 float& b2WorldNode::getPTM()
 {
-
 	return _PTM_Ratio;
 
 }
@@ -156,7 +155,7 @@ bool b2WorldNode::addChildBody(Node* child)
 
 		if (newB2Dchild->getBody()->GetType() == b2_dynamicBody || newB2Dchild->getBody()->GetType() == b2_kinematicBody)
 		{
-			_dynamicChild.push_back(newB2Dchild->getBody());
+			addDynamicChild(newB2Dchild->getBody());
 		}
 		return true;
 	}
@@ -189,10 +188,8 @@ void b2WorldNode::update(float dt)
 	//traverse dynamic child vector of pointers, if dynamic child is awake it's transform is likely changing and the sprites transform is called to update it.
 	for (int i = 0;i < _dynamicChild.size();i++)
 	{
-
 		if (_dynamicChild[i]->IsAwake())
 		{
-
 			float deg = CC_RADIANS_TO_DEGREES(-_dynamicChild[i]->GetAngle());
 			b2Vec2 pos = _dynamicChild[i]->GetPosition();
 			Vec2 pos2 = Vec2(pos.x*_PTM_Ratio, pos.y*_PTM_Ratio);
@@ -208,9 +205,7 @@ void b2WorldNode::update(float dt)
 			{
 				dc->setPosition(pos2);
 			}
-
 		}
-
 	}
 
 

@@ -86,9 +86,6 @@ public:
 	* @return  An autoreleased b2Sprite object.
 	*/
 
-	//static b2Sprite* createWithSpriteFrame(cocos2d::SpriteFrame* spriteFrame);
-	//static b2Sprite* createWithSpriteFrameName(const std::string& spriteFrameName);
-
 	// SET/GET
 
 	virtual void setPosition(const Vec2& pos) override;
@@ -111,12 +108,6 @@ public:
 	b2Body* getBody();
 
 	b2BodyDef* getBodyDef();
-	
-	// CONTACT
-
-	//virtual void handleContact(Sensor type);
-	//virtual void handleContactEnd(Sensor type);
-
 
 protected:
 
