@@ -1,7 +1,7 @@
 # Box2d-Integration
-simple integration of box2d with cocos2d-x v3.14.1
+Basic integration of Box2D 2.3.1 with cocos2d-x v3.15.1. Accompanying tutorial explaining all code in detail can be found [here](http://www.lavaxp.net/integrating-box2d-with-cocos2d-x/).
 
-//in progress//
+![preview](http://www.lavaxp.net/wp-content/uploads/2017/06/box2d-Integration.gif)
 
 ## Built With
 
